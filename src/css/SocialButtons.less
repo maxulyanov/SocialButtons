@@ -1,0 +1,417 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "fontello";
+  src:url("../fonts/fontello.eot");
+  src:url("../fonts/fontello.eot?#iefix") format("embedded-opentype"),
+  url("../fonts/fontello.woff") format("woff"),
+  url("../fonts/fontello.ttf") format("truetype"),
+  url("../fonts/fontello.svg#fontello") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+.social-button__icon:before {
+  font-family: "fontello" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+// ICONS
+.b-social-button--facebook {
+  .social-button__icon {
+    &:before {
+      content: '\e801';
+    }
+  }
+}
+.b-social-button--googlePlus {
+  .social-button__icon {
+    &:before {
+      content: '\e800';
+    }
+  }
+}
+.b-social-button--vkontakte {
+  .social-button__icon {
+    &:before {
+      position: relative;
+      top: -1px;
+      content: '\e803';
+    }
+  }
+}
+.b-social-button--twitter {
+  .social-button__icon {
+    &:before {
+      content: '\e804';
+    }
+  }
+}
+.b-social-button--odnoklassniki {
+  .social-button__icon {
+    &:before {
+      content: '\e802';
+    }
+  }
+}
+
+
+/* GLOBAL STYLE BUTTONS */
+@color-vkontakte: #48729E;
+@color-facebook: #3C5A98;
+@color-twitter: #00ACED;
+@color-googlePlus: #C25234;
+@color-odnoklassniki: #FF9F4D;
+
+@color-vkontakte-hover: #386390;
+@color-facebook-hover: #314D86;
+@color-twitter-hover: #0498D0;
+@color-googlePlus-hover: #AD472C;
+@color-odnoklassniki-hover: #E68B3E;
+
+.container-social-buttons {
+  font-size: 0;
+  * {
+    box-sizing: border-box;
+  }
+}
+.b-social-button {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 14px;
+  color: #000;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  .social-button__icon {
+    float: left;
+    padding: 10px 7px 9px 0;
+    font-size: 16px;
+  }
+  .social-button__text {
+    float: left;
+  }
+  .social-button__count {
+    float: left;
+  }
+
+}
+
+
+
+/* DEFAULT THEME */
+.b-social-button--default {
+  border: 1px #e6e6e6 solid;
+  background: #FFF;
+  border-radius: 3px;
+  .social-button__icon {
+    text-align: center;
+    margin: 0;
+    padding: 9px;
+    height: 35px;
+    width: 35px;
+    overflow: hidden;
+    float: left;
+    font-size: 17px;
+  }
+  .social-button__text {
+    padding: 10px 7px 10px 0;
+  }
+  .social-button__count {
+    padding: 10px 7px 10px 0;
+  }
+
+  &:hover {
+    color: #FFF;
+    .social-button__icon {
+      &:before {
+        color: #FFF !important;
+      }
+    }
+  }
+
+  // googlePlus
+  &.b-social-button--googlePlus {
+    .social-button__icon {
+      &:before {
+        color: @color-googlePlus;
+      }
+    }
+    &:hover {
+      background: @color-googlePlus;
+      border-color: @color-googlePlus;
+    }
+  }
+  // facebook
+  &.b-social-button--facebook {
+    .social-button__icon {
+      &:before {
+        color: @color-facebook;
+      }
+    }
+    &:hover {
+      background: @color-facebook;
+      border-color: @color-facebook;
+    }
+  }
+  // odnoklassniki
+  &.b-social-button--odnoklassniki{
+    .social-button__icon {
+      &:before {
+        color: @color-odnoklassniki;
+      }
+    }
+    &:hover {
+      background: @color-odnoklassniki;
+      border-color: @color-odnoklassniki;
+    }
+  }
+  // vkontakte
+  &.b-social-button--vkontakte {
+    .social-button__icon {
+      &:before {
+        color: @color-vkontakte;
+      }
+    }
+    &:hover {
+      background: @color-vkontakte;
+      border-color: @color-vkontakte;
+    }
+  }
+  // twitter
+  &.b-social-button--twitter {
+    .social-button__icon {
+      &:before {
+        color: @color-twitter;
+      }
+    }
+    &:hover {
+      background: @color-twitter;
+      border-color: @color-twitter;
+    }
+  }
+}
+
+
+/* COLOR */
+.b-social-button--color {
+  border-radius: 2px;
+  color: #FFF;
+  .social-button__icon {
+    width: 41px;
+    height: 41px;
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    &:before {
+      color: #FFF;
+    }
+  }
+  .social-button__text {
+    padding: 14px 7px 13px 0px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .social-button__count {
+    padding: 12px 7px 12px 0px;
+    font-weight: bold;
+  }
+
+  // googlePlus
+  &.b-social-button--googlePlus {
+    background: @color-googlePlus;
+    &:hover {
+      background: @color-googlePlus-hover;
+    }
+  }
+  // facebook
+  &.b-social-button--facebook {
+    background: @color-facebook;
+    &:hover {
+      background: @color-facebook-hover;
+    }
+  }
+  // odnoklassniki
+  &.b-social-button--odnoklassniki{
+    background: @color-odnoklassniki;
+    &:hover {
+      background: @color-odnoklassniki-hover;
+    }
+  }
+  // vkontakte
+  &.b-social-button--vkontakte {
+    background: @color-vkontakte;
+    &:hover {
+      background: @color-vkontakte-hover;
+    }
+  }
+  // twitter
+  &.b-social-button--twitter {
+    background: @color-twitter;
+    &:hover {
+      background: @color-twitter-hover;
+    }
+  }
+}
+
+
+/* FLAT3D */
+.b-social-button--flat3d {
+  border-bottom: 3px solid transparent;
+  border-radius: 3px;
+  color: #FFF;
+  .social-button__icon {
+    width: 41px;
+    height: 41px;
+    padding: 11px;
+    font-size: 18px;
+    text-align: center;
+    &:before {
+      color: #FFF;
+    }
+  }
+  .social-button__text {
+    padding: 15px 7px 12px 0px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .social-button__count {
+    padding: 12px 7px 12px 0px;
+  }
+
+  &:hover {
+    border-bottom-width: 2px;
+  }
+
+  &:active {
+    border-bottom-width: 1px;
+  }
+
+  // googlePlus
+  &.b-social-button--googlePlus {
+    background: @color-googlePlus;
+    border-bottom-color: @color-googlePlus-hover;
+  }
+  // facebook
+  &.b-social-button--facebook {
+    background: @color-facebook;
+    border-bottom-color: @color-facebook-hover;
+  }
+  // odnoklassniki
+  &.b-social-button--odnoklassniki{
+    background: @color-odnoklassniki;
+    border-bottom-color: @color-odnoklassniki-hover;
+  }
+  // vkontakte
+  &.b-social-button--vkontakte {
+    background: @color-vkontakte;
+    border-bottom-color: @color-vkontakte-hover;
+  }
+  // twitter
+  &.b-social-button--twitter {
+    background: @color-twitter;
+    border-bottom-color: @color-twitter-hover;
+  }
+}
+
+
+/* CIRCLE */
+.b-social-button--circle {
+  .social-button__icon {
+    width: 40px;
+    height: 40px;
+    padding: 9px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 100%;
+    &:before {
+      position: relative;
+      top: 1px;
+      color: #FFF;
+    }
+  }
+  .social-button__text {
+    padding: 13px 4px 7px 7px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #444;
+  }
+  .social-button__count {
+    padding: 14px 2px 2px 2px;
+    font-size: 12px;
+    color: #444;
+  }
+
+  &:hover {
+    .social-button__text,
+    .social-button__count {
+      color: #000;
+    }
+  }
+
+  // googlePlus
+  &.b-social-button--googlePlus {
+    .social-button__icon {
+      background: @color-googlePlus;
+    }
+    &:hover {
+      .social-button__icon {
+        background: @color-googlePlus-hover;
+      }
+    }
+  }
+  // facebook
+  &.b-social-button--facebook {
+    .social-button__icon {
+      background: @color-facebook;
+    }
+    &:hover {
+      .social-button__icon {
+        background: @color-facebook-hover;
+      }
+    }
+  }
+  // odnoklassniki
+  &.b-social-button--odnoklassniki{
+    .social-button__icon {
+      background: @color-odnoklassniki;
+    }
+    &:hover {
+      .social-button__icon {
+        background: @color-odnoklassniki-hover;
+      }
+    }
+  }
+  // vkontakte
+  &.b-social-button--vkontakte {
+    .social-button__icon {
+      background: @color-vkontakte;
+    }
+    &:hover {
+      .social-button__icon {
+        background: @color-vkontakte-hover;
+      }
+    }
+  }
+  // twitter
+  &.b-social-button--twitter {
+    .social-button__icon {
+      background: @color-twitter;
+    }
+    &:hover {
+      .social-button__icon {
+        background: @color-twitter-hover;
+      }
+    }
+  }
+}

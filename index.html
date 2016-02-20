@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>SocialButtons - кнопки для добавления контента в социальные сети</title>
+  <link rel="stylesheet" href="src/css/SocialButtons.css">
+  <script src="src/js/es6-promise.js"></script>
+  <script src="src/js/SocialButtons.js"></script>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: #F3F3F3;
+    }
+    .wrapper {
+      position: relative;
+      min-height: 100%;
+    }
+    .container {
+      width: 1024px;
+      margin: 0 auto;
+      padding-bottom: 100px;
+    }
+    .header {
+      min-width: 1024px;
+      padding: 10px;
+      background: #2AABDC;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 22px;
+      text-align: center;
+      color: #FFF;
+    }
+    .footer {
+      text-align: center;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 50px;
+    }
+    .footer a {
+      font-size: 16px;
+      color: #222;
+    }
+    .footer a:hover {
+      color: #2AABDC;
+    }
+    .title {
+      display: inline-block;
+      padding: 3px;
+      margin: 30px 0 15px 0;
+      text-transform: uppercase;
+      font-size: 20px;
+      color: #222;
+    }
+  </style>
+  <script>
+
+    function DOMready() {
+
+      // 1
+      new SocialButtons({
+        services: ['vkontakte', 'facebook', 'googlePlus', 'odnoklassniki', 'twitter'],
+        id: 'social-1',
+        counter: true,
+        url: 'https://roscontrol.com/testlab/',
+        title: 'Каталог проверенных товаров',
+        image: 'https://roscontrol.com/bundles/roscontroltests/images/share-tests-main.jpg',
+      });
+
+
+      // 2
+      new SocialButtons({
+        services: ['facebook', 'vkontakte', 'odnoklassniki', 'googlePlus', 'twitter'],
+        id: 'social-2',
+        theme: 'color',
+        counter: true,
+        url: 'https://democrator.ru/petition/trebuem-vozbuzhdeniya-ugolovnogo-dela-vsex-uchastn/',
+        title: 'Живодёров к ответу!',
+        image: 'https://democrator.ru/image/preview/petition/6c/4c/6c4c42a1-14287-petition-600x415-wm_problem.jpg',
+      });
+
+
+      // 3
+      new SocialButtons({
+        services: ['facebook', 'vkontakte', 'odnoklassniki', 'googlePlus', 'twitter'],
+        id: 'social-3',
+        components: ['icon', 'text'],
+        theme: 'flat3d',
+        title: 'Google увел от налогообложения около €11 млрд с помощью «сэндвича»',
+        url: 'http://www.rbc.ru/technology_and_media/19/02/2016/56c726249a79476b04b9c0d1?from=main',
+        helpers: {
+          vkontakte: {
+            text: 'Вконтакте',
+          },
+          facebook: {
+            text: 'facebook',
+          },
+          googlePlus: {
+            text: 'google+',
+          },
+          odnoklassniki: {
+            text: 'Одноклассники',
+          },
+          twitter: {
+            text: 'twitter',
+          }
+        }
+      });
+
+      // 4
+      new SocialButtons({
+        services: ['vkontakte', 'facebook', 'googlePlus', 'odnoklassniki', 'twitter'],
+        id: 'social-4',
+        components: ['icon', 'text', 'count'],
+        theme: 'circle',
+        counter: true,
+        url: 'http://ria.ru/world/20160219/1377424306.html',
+        title: 'Американские ВМС на десятилетие отстают от ВМФ России и Китая',
+      });
+    }
+
+
+
+    document.addEventListener('DOMContentLoaded', DOMready);
+  </script>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="header">
+      <h1>SocialButtons - Кнопки для добавления контента в социальные сети</h1>
+    </div>
+    <div class="container">
+      <div class="title">Default</div>
+      <div id="social-1"></div>
+      <div class="title">Color</div>
+      <div id="social-2"></div>
+      <div class="title">Flat3d</div>
+      <div id="social-3"></div>
+      <div class="title">Circle</div>
+      <div id="social-4"></div>
+    </div>
+    <div class="footer">
+      <a href="https://github.com/M-Ulyanov/SocialButtons">source code and documentation</a>
+    </div>
+  </div>
+</body>
+</html>
