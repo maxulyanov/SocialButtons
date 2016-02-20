@@ -70,6 +70,16 @@
         url: 'https://roscontrol.com/testlab/',
         title: 'Каталог проверенных товаров',
         image: 'https://roscontrol.com/bundles/roscontroltests/images/share-tests-main.jpg',
+        callbacks: {
+          create: function(data) {
+            console.log('create self', data.self);
+            console.log('create options', data.options);
+          },
+          share: function(data) {
+            console.log('share self', data.self);
+            console.log('share service', data.service);
+          }
+        }
       });
 
 

@@ -214,9 +214,9 @@
       if(!isNaN(count)) {
         countElement.setAttribute('data-count', count);
         countElement.innerHTML = count;
-        var callbackCreate = this.options.callbacks.share;
-        if(typeof callbackCreate === 'function') {
-          callbackCreate({
+        var callbackShare = this.options.callbacks.share;
+        if(typeof callbackShare === 'function') {
+          callbackShare({
             self: button,
             service: service
           });
