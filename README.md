@@ -33,6 +33,7 @@ todo update..
 Решение: <br>
 - Вызов new SocialButtons необходимо осущеставить после загрузки DOM дерева - DOMContentLoaded<br>
 - Проверьте наличие элемента c ID - yourID на вашей странице<br>
+
 Ошибка: `Uncaught ReferenceError: Promise is not defined`<br>
 Решение: Подключите файл `es6-promise.js`
 
