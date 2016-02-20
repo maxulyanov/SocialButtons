@@ -11,37 +11,37 @@
 - Никакие дополнительные библиотеки (например jQuery) для работы не требуются
 
 ## Какие сервисы поддерживаются?
-На данный момент это - Вконтакте, Facebook, Google+, Одноклассники, Twitter
-Функциональные названия:
+На данный момент это - Вконтакте, Facebook, Google+, Одноклассники, Twitter<br>
+Функциональные названия:<br>
 `['facebook', 'vkontakte', 'odnoklassniki', 'googlePlus', 'twitter']`
 
 ## Параметры
 todo update..
 
 ## Рекомендации
-Используйте Open Graph разметку на странице. 
-Это поможет подхватывать социальным сетям правильные данные при публикации.
-`<meta property="og:url" content="share url">`
-`<meta property="og:title" content="share title">`
-`<meta property="og:description" content="share content">`
+Используйте Open Graph разметку на странице. <br>
+Это поможет подхватывать социальным сетям правильные данные при публикации.<br>
+`<meta property="og:url" content="share url">`<br>
+`<meta property="og:title" content="share title">`<br>
+`<meta property="og:description" content="share content">`<br>
 `<meta property="og:image" content="share image">`
 
 ## Проблемы и решения
 #### Скрипт не работает, не отображается ни одна кнопка
-Стоит проверить консоль:
-Ошибка: `#yourID not found!`
-Решение: 
-- Вызов new SocialButtons необходимо осущеставить после загрузки DOM дерева - DOMContentLoaded
-- Проверьте наличие элемента c ID - yourID на вашей странице
-Ошибка: `Uncaught ReferenceError: Promise is not defined`
-Решение: Подключите файл `es6-promise.js`
-#### Не отображается счетчик публикаций
-Некоторые социальные сети не позволяют получить количество публикаций (шаринга), например у Twitter, такая возможность отсутствует
+Стоит проверить консоль:<br>
+Ошибка: `#yourID not found!`<br>
+Решение: <br>
+- Вызов new SocialButtons необходимо осущеставить после загрузки DOM дерева - DOMContentLoaded<br>
+- Проверьте наличие элемента c ID - yourID на вашей странице<br>
+Ошибка: `Uncaught ReferenceError: Promise is not defined`<br>
+Решение: Подключите файл `es6-promise.js`<br>
+#### Не отображается счетчик публикаций<br>
+Некоторые социальные сети не позволяют получить количество публикаций (шаринга), например у Twitter, такая возможность отсутствует<br>
 #### Публикуется неправильный контент
 Выполните рекомендации из предыдущего раздела
 
 ## Кроссбраузерность
-Все современные браузеры.
+Все современные браузеры.<br>
 IE начиная с 9 версии и выше.
 
 ## Демонстрация
