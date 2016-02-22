@@ -1,7 +1,7 @@
 // SocialButtons 1.0
 // Author: M.Ulyanov
 // Created: 19/02/2016
-// Example: - http://m-ulyanov.github.io/socialbuttons/
+// Example: - https://m-ulyanov.github.io/socialbuttons/
 
 
 ;(function (context) {
@@ -382,7 +382,7 @@
     googlePlus: {
       name: 'googlePlus',
       shareUrl: 'https://plus.google.com/share?url={{ url }}',
-      getCountUrl: 'http://share.yandex.ru/gpp.xml?url=',
+      getCountUrl: 'https://share.yandex.ru/gpp.xml?url=',
       counter: function (url, promise) {
         var request = new RequestManager();
         request.create(this.getCountUrl + url).then(function (count) {
