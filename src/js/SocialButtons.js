@@ -1,4 +1,4 @@
-// SocialButtons 1.0
+// SocialButtons 1.0.0
 // Author: M.Ulyanov
 // Created: 19/02/2016
 // Example: - https://m-ulyanov.github.io/socialbuttons/

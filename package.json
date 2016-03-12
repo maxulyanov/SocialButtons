@@ -1,0 +1,22 @@
+{
+  "name": "social-buttons",
+  "version": "1.0.0",
+  "description": "Готовое решение для добавления кнопок социальных сетей на сайт",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/M-Ulyanov/SocialButtons.git"
+  },
+  "keywords": [
+    "Social buttons",
+    "Social service",
+    "Social share",
+    "javascript"
+  ],
+  "author": "M-Ulyanov",
+  "license": "The MIT License (MIT)",
+  "bugs": {
+    "url": "https://github.com/M-Ulyanov/SocialButtons/issues"
+  },
+  "homepage": "https://github.com/M-Ulyanov/SocialButtons"
+}
