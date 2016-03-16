@@ -1,6 +1,6 @@
 {
   "name": "social-buttons",
-  "version": "1.0.0",
+  "version": "2.1.1",
   "description": "Готовое решение для добавления кнопок социальных сетей на сайт",
   "main": "index.js",
   "repository": {

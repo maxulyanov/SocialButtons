@@ -19,7 +19,7 @@
       min-height: 100%;
     }
     .container {
-      width: 1024px;
+      width: 1200px;
       margin: 0 auto;
       padding-bottom: 100px;
     }
@@ -60,11 +60,13 @@
   </style>
   <script>
 
+    document.addEventListener('DOMContentLoaded', DOMready);
+
     function DOMready() {
 
       // 1
       new SocialButtons({
-        services: ['vkontakte', 'facebook', 'googlePlus', 'odnoklassniki', 'twitter'],
+        services: ['vkontakte', 'facebook', 'googleplus', 'odnoklassniki', 'moimir', 'twitter'],
         id: 'social-1',
         counter: true,
         url: 'https://roscontrol.com/testlab/',
@@ -85,7 +87,7 @@
 
       // 2
       new SocialButtons({
-        services: ['facebook', 'vkontakte', 'odnoklassniki', 'googlePlus', 'twitter'],
+        services: ['facebook', 'vkontakte', 'odnoklassniki', 'googleplus', 'twitter'],
         id: 'social-2',
         theme: 'color',
         counter: true,
@@ -97,7 +99,7 @@
 
       // 3
       new SocialButtons({
-        services: ['facebook', 'vkontakte', 'odnoklassniki', 'googlePlus', 'twitter'],
+        services: ['facebook', 'vkontakte', 'odnoklassniki', 'googleplus', 'twitter'],
         id: 'social-3',
         components: ['icon', 'text'],
         theme: 'flat3d',
@@ -110,7 +112,7 @@
           facebook: {
             text: 'facebook',
           },
-          googlePlus: {
+          googleplus: {
             text: 'google+',
           },
           odnoklassniki: {
@@ -124,7 +126,7 @@
 
       // 4
       new SocialButtons({
-        services: ['vkontakte', 'facebook', 'googlePlus', 'odnoklassniki', 'twitter'],
+        services: ['vkontakte', 'facebook', 'googleplus', 'odnoklassniki', 'moimir'],
         id: 'social-4',
         components: ['icon', 'text', 'count'],
         theme: 'circle',
@@ -134,9 +136,6 @@
       });
     }
 
-
-
-    document.addEventListener('DOMContentLoaded', DOMready);
   </script>
 </head>
 <body>
