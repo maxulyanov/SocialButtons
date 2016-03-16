@@ -337,6 +337,16 @@
                 text: 'Ретвит',
                 title: 'Написать в Twitter',
                 customClass: ''
+            },
+            lj: {
+                text: 'Написать',
+                title: 'Разместить запись в LiveJournal',
+                customClass: ''
+            },
+            linkedin: {
+                text: 'Поделиться',
+                title: 'Поделиться в Linkedin',
+                customClass: ''
             }
         }
 
@@ -442,6 +452,22 @@
         twitter: {
             name: 'twitter',
             shareUrl: 'https://twitter.com/share?={{ url }}&text={{ description }}',
+            getCountUrl: null,
+            counter: function (url, promise) {
+                promise.resolve(0);
+            }
+        },
+        lj: {
+            name: 'lj',
+            shareUrl: 'https://www.livejournal.com/update.bml?subject={{ title }}&event={{ description }}',
+            getCountUrl: null,
+            counter: function (url, promise) {
+                promise.resolve(0);
+            }
+        },
+        linkedin: {
+            name: 'linkedin',
+            shareUrl: 'https://www.linkedin.com/shareArticle?mini=true&url={{ url }}&title={{ title }}&summary={{ description }}',
             getCountUrl: null,
             counter: function (url, promise) {
                 promise.resolve(0);
