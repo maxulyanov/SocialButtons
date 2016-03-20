@@ -131,8 +131,16 @@
         components: ['icon', 'text', 'count'],
         theme: 'circle',
         counter: true,
-        url: 'http://ria.ru/world/20160219/1377424306.html',
-        title: 'Американские ВМС на десятилетие отстают от ВМФ России и Китая',
+        outputCountCallback: function(count) {
+          if(count >= 1000000) {
+            return count = parseInt(count / 1000000) + 'm';
+          }
+          else if(count >= 1000) {
+            return count = parseInt(count / 1000) + 'k';
+          }
+          return count;
+        },
+        url: 'https://mail.ru',
       });
     }
 

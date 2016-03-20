@@ -98,7 +98,7 @@
             return self._getCounter(service).then(function (count) {
                 countElement.setAttribute('data-count', count);
                 /** @namespace self.options.showZeros */
-                count = counterRules(count, self.options.showZeros);
+                count = counterRules(count, self.options.showZeros, self.options.outputCountCallback);
                 if (count === '') {
                     countElement.className += 'social-button__count--empty';
                 }
@@ -308,6 +308,7 @@
             create: null,
             share: null
         },
+        outputCountCallback: null,
         helpers: {
             vkontakte: {
                 text: 'Рассказать',
@@ -505,15 +506,20 @@
         }
     };
 
+
     /**
      *
      * @param count
      * @param showZeros
+     * @param outputCountCallback
      * @returns {*}
      */
-    function counterRules(count, showZeros) {
+    function counterRules(count, showZeros, outputCountCallback) {
         if (!count && !showZeros) {
             count = '';
+        }
+        if(typeof outputCountCallback === 'function') {
+            count = outputCountCallback(parseInt(count));
         }
         return count;
     }
