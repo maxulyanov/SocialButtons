@@ -1,6 +1,6 @@
 /*
  * SocialButtons: Кнопки для добавления контента в социальные сети
- * 2.1.1
+ * 2.1.2
  *
  * By Max Ulyanov
  * Src: https://github.com/M-Ulyanov/SocialButtons
@@ -100,7 +100,7 @@
                 /** @namespace self.options.showZeros */
                 count = counterRules(count, self.options.showZeros);
                 if (count === '') {
-                    countElement.classList.add('social-button__count--empty');
+                    countElement.className += 'social-button__count--empty';
                 }
                 countElement.innerHTML = count;
                 button.appendChild(countElement);
@@ -172,6 +172,7 @@
         if (!template) {
             return '';
         }
+        console.log(template, objectCallback)
         var pattern = /{{[^{{]+}}/gi;
 
         return template.replace(pattern, function (foundString) {
@@ -355,6 +356,13 @@
 
     /**
      *
+     * @type {string}
+     */
+    var protocol =  location.protocol === 'https:' ? 'https' : 'http';
+
+
+    /**
+     *
      * @type {{
     * vkontakte: {name: string, promises: Array, shareUrl: string, getCountUrl: string, counter: Function},
     * facebook: {name: string, shareUrl: string, getCountUrl: string, counter: Function},
@@ -367,8 +375,8 @@
         vkontakte: {
             name: 'vkontakte',
             promises: [],
-            shareUrl: 'https://vk.com/share.php?url={{ url }}&title={{ title }}&description={{ description }}&image={{ image }}',
-            getCountUrl: 'https://vk.com/share.php?act=count&url=',
+            shareUrl: protocol + '://vk.com/share.php?url={{ url }}&title={{ title }}&description={{ description }}&image={{ image }}',
+            getCountUrl: protocol + '://vk.com/share.php?act=count&url=',
             counter: function (url, promise) {
                 var request = new RequestManager();
                 var index = this.promises.length;
@@ -386,8 +394,8 @@
         },
         facebook: {
             name: 'facebook',
-            shareUrl: 'https://www.facebook.com/sharer.php?u={{ url }}&title={{ title }}&description={{ description }}&image={{ image }}',
-            getCountUrl: 'https://graph.facebook.com/?id=',
+            shareUrl: protocol + '://www.facebook.com/sharer.php?u={{ url }}&title={{ title }}&description={{ description }}&image={{ image }}',
+            getCountUrl: protocol + '://graph.facebook.com/?id=',
             counter: function (url, promise) {
                 var request = new RequestManager();
                 request.create(this.getCountUrl + url).then(function (data) {
@@ -402,8 +410,8 @@
         },
         googleplus: {
             name: 'googleplus',
-            shareUrl: 'https://plus.google.com/share?url={{ url }}',
-            getCountUrl: 'https://share.yandex.ru/gpp.xml?url=',
+            shareUrl: protocol + '://plus.google.com/share?url={{ url }}',
+            getCountUrl: protocol + '://share.yandex.ru/gpp.xml?url=',
             counter: function (url, promise) {
                 var request = new RequestManager();
                 request.create(this.getCountUrl + url).then(function (count) {
@@ -417,8 +425,8 @@
         odnoklassniki: {
             name: 'odnoklassniki',
             promises: [],
-            shareUrl: 'https://www.odnoklassniki.ru/dk?st.cmd=addShare&st.s=1&st._surl={{ url }}&st.comments={{ title }}',
-            getCountUrl: 'https://connect.ok.ru/dk?st.cmd=extLike&ref=',
+            shareUrl: protocol + '://www.odnoklassniki.ru/dk?st.cmd=addShare&st.s=1&st._surl={{ url }}&st.comments={{ title }}',
+            getCountUrl: protocol + '://connect.ok.ru/dk?st.cmd=extLike&ref=',
             counter: function (url, promise) {
                 var request = new RequestManager();
                 var index = this.promises.length;
@@ -434,13 +442,14 @@
         },
         moimir: {
             name: 'moimir',
-            shareUrl: 'https://connect.mail.ru/share?url={{ url }}&title={{ title }}&description={{ description  }}',
-            getCountUrl: 'http://appsmail.ru/share/count/',
+            shareUrl: protocol + '://connect.mail.ru/share?url={{ url }}&title={{ title }}&description={{ description  }}',
+            getCountUrl: protocol + '://appsmail.ru/share/count/',
             counter: function (url, promise) {
                 var position = url.indexOf('//');
                 url = url.slice(position + 2);
                 var request = new RequestManager();
                 request.create(this.getCountUrl + url).then(function (data) {
+                    /** @namespace data.share_mm */
                     var count = data.share_mm;
                     if (count == null) {
                         count = 0;
@@ -451,7 +460,7 @@
         },
         twitter: {
             name: 'twitter',
-            shareUrl: 'https://twitter.com/share?={{ url }}&text={{ description }}',
+            shareUrl: protocol + '://twitter.com/share?={{ url }}&text={{ description }}',
             getCountUrl: null,
             counter: function (url, promise) {
                 promise.resolve(0);
@@ -459,7 +468,7 @@
         },
         lj: {
             name: 'lj',
-            shareUrl: 'https://www.livejournal.com/update.bml?subject={{ title }}&event={{ description }}',
+            shareUrl: protocol + '://www.livejournal.com/update.bml?subject={{ title }}&event={{ description }}',
             getCountUrl: null,
             counter: function (url, promise) {
                 promise.resolve(0);
@@ -467,7 +476,7 @@
         },
         linkedin: {
             name: 'linkedin',
-            shareUrl: 'https://www.linkedin.com/shareArticle?mini=true&url={{ url }}&title={{ title }}&summary={{ description }}',
+            shareUrl: protocol + '://www.linkedin.com/shareArticle?mini=true&url={{ url }}&title={{ title }}&summary={{ description }}',
             getCountUrl: null,
             counter: function (url, promise) {
                 promise.resolve(0);
