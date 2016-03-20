@@ -1,6 +1,6 @@
 /*
  * SocialButtons: Кнопки для добавления контента в социальные сети
- * 2.1.2
+ * 2.1.3
  *
  * By Max Ulyanov
  * Src: https://github.com/M-Ulyanov/SocialButtons
@@ -172,7 +172,7 @@
         if (!template) {
             return '';
         }
-        console.log(template, objectCallback)
+
         var pattern = /{{[^{{]+}}/gi;
 
         return template.replace(pattern, function (foundString) {
@@ -184,7 +184,7 @@
                 }
             }).join('');
             if (property in objectCallback) {
-                return objectCallback[property];
+                return encodeURIComponent(objectCallback[property]);
             }
             else {
                 return '';
