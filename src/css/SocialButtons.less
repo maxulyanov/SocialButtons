@@ -1,417 +1,295 @@
-@charset "UTF-8";
-
-@font-face {
-  font-family: "fontello";
-  src:url("../fonts/fontello.eot");
-  src:url("../fonts/fontello.eot?#iefix") format("embedded-opentype"),
-  url("../fonts/fontello.woff") format("woff"),
-  url("../fonts/fontello.ttf") format("truetype"),
-  url("../fonts/fontello.svg#fontello") format("svg");
-  font-weight: normal;
-  font-style: normal;
-
-}
-
-.social-button__icon:before {
-  font-family: "fontello" !important;
-  font-style: normal !important;
-  font-weight: normal !important;
-  font-variant: normal !important;
-  text-transform: none !important;
-  speak: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-
-// ICONS
-.b-social-button--facebook {
-  .social-button__icon {
-    &:before {
-      content: '\e801';
-    }
-  }
-}
-.b-social-button--googleplus {
-  .social-button__icon {
-    &:before {
-      content: '\e800';
-    }
-  }
-}
-.b-social-button--vkontakte {
-  .social-button__icon {
-    &:before {
-      position: relative;
-      top: -1px;
-      content: '\e803';
-    }
-  }
-}
-.b-social-button--twitter {
-  .social-button__icon {
-    &:before {
-      content: '\e804';
-    }
-  }
-}
-.b-social-button--odnoklassniki {
-  .social-button__icon {
-    &:before {
-      content: '\e802';
-    }
-  }
-}
-
-
 /* GLOBAL STYLE BUTTONS */
 @color-vkontakte: #48729E;
 @color-facebook: #3C5A98;
 @color-twitter: #00ACED;
 @color-googleplus: #C25234;
 @color-odnoklassniki: #FF9F4D;
+@color-moimir: #2164AD;
+@color-lj: #0D425A;
+@color-linkedin: #0083BE;
 
-@color-vkontakte-hover: #386390;
-@color-facebook-hover: #314D86;
-@color-twitter-hover: #0498D0;
-@color-googleplus-hover: #AD472C;
-@color-odnoklassniki-hover: #E68B3E;
+@color-vkontakte-active: darken(@color-vkontakte, 5%);
+@color-facebook-active: darken(@color-facebook, 5%);
+@color-twitter-active: darken(@color-twitter, 5%);
+@color-googleplus-active: darken(@color-googleplus, 5%);
+@color-odnoklassniki-active: darken(@color-odnoklassniki, 5%);
+@color-moimir-active: darken(@color-moimir, 5%);
+@color-lj-active: darken(@color-lj, 5%);
+@color-linkedin-active: darken(@color-linkedin, 5%);
+
+@font-face {
+  font-family: 'social-icon';
+  src:    url('../icons/social-icon.eot?pzyb1y');
+  src:    url('../icons/social-icon.eot?pzyb1y#iefix') format('embedded-opentype'),
+  url('../icons/social-icon.ttf?pzyb1y') format('truetype'),
+  url('../icons/social-icon.woff?pzyb1y') format('woff'),
+  url('../icons/social-icon.svg?pzyb1y#social-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.social-button__icon:before {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'social-icon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+//
+.b-social-button--googleplus {
+  .social-button__icon {
+    &:before {
+      content: "\e907";
+    }
+  }
+}
+.b-social-button--facebook {
+  .social-button__icon {
+    &:before {
+      content: "\e90a";
+    }
+  }
+}
+.b-social-button--odnoklassniki {
+  .social-button__icon {
+    &:before {
+      content: "\e909";
+    }
+  }
+}
+.b-social-button--vkontakte {
+  .social-button__icon {
+    &:before {
+      content: "\e904";
+    }
+  }
+}
+.b-social-button--twitter {
+  .social-button__icon {
+    &:before {
+      content: "\e905";
+    }
+  }
+}
+.b-social-button--moimir {
+  .social-button__icon {
+    &:before {
+      content: "\e908";
+    }
+  }
+}
+
+.b-social-button--lj {
+  .social-button__icon {
+    &:before {
+      content: "\e901";
+    }
+  }
+}
+
+.b-social-button--linkedin {
+  .social-button__icon {
+    &:before {
+      content: "\e906";
+    }
+  }
+}
+
 
 .container-social-buttons {
   font-size: 0;
   * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
 }
 .b-social-button {
   display: inline-block;
   margin-right: 10px;
-  font-size: 14px;
+  margin-bottom: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 28px;
   color: #000;
   cursor: pointer;
-  font-family: Arial, sans-serif;
+  &:last-child {
+    border-right: 0;
+  }
+  .social-button__components {
+    display: table-cell;
+    table-layout: fixed;
+    width: 100%;
+  }
   .social-button__icon {
-    float: left;
-    padding: 10px 7px 9px 0;
-    font-size: 16px;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0.2em;
+    line-height: 1px;
   }
-  .social-button__text {
-    float: left;
-  }
+  .social-button__text,
   .social-button__count {
-    float: left;
+    display: table-cell;
+    font-size: 0.5em;
+    padding: 5px 8px;
+    vertical-align: middle;
   }
-
+  .social-button__count--empty {
+    &[data-count='0'] {
+      display: none;
+    }
+  }
 }
-
 
 
 /* DEFAULT THEME */
 .b-social-button--default {
-  border: 1px #e6e6e6 solid;
-  background: #FFF;
-  border-radius: 3px;
+  background: #EFEFEF;
+  .social-button__components {
+    & > div {
+      border-right: 1px solid #E0E0E0;
+      &:last-child {
+        border-right: 0;
+      }
+    }
+  }
   .social-button__icon {
-    text-align: center;
-    margin: 0;
-    padding: 9px;
-    height: 35px;
-    width: 35px;
-    overflow: hidden;
-    float: left;
-    font-size: 17px;
+    background: #FFF;
+    &:before {
+      color: #A9ADB6;
+    }
   }
-  .social-button__text {
-    padding: 10px 7px 10px 0;
-  }
-  .social-button__count {
-    padding: 10px 7px 10px 0;
-  }
-
   &:hover {
-    color: #FFF;
+    background: #FFF;
     .social-button__icon {
+      border-right-color: transparent;
       &:before {
-        color: #FFF !important;
+        color: #FFF;
       }
     }
   }
 
-  // googleplus
   &.b-social-button--googleplus {
-    .social-button__icon {
-      &:before {
-        color: @color-googleplus;
+    &:hover {
+      .social-button__icon {
+        background-color: @color-googleplus;
       }
     }
-    &:hover {
-      background: @color-googleplus;
-      border-color: @color-googleplus;
-    }
   }
-  // facebook
   &.b-social-button--facebook {
-    .social-button__icon {
-      &:before {
-        color: @color-facebook;
+    &:hover {
+      .social-button__icon {
+        background-color: @color-facebook;
       }
     }
-    &:hover {
-      background: @color-facebook;
-      border-color: @color-facebook;
-    }
   }
-  // odnoklassniki
-  &.b-social-button--odnoklassniki{
-    .social-button__icon {
-      &:before {
-        color: @color-odnoklassniki;
+  &.b-social-button--odnoklassniki {
+    &:hover {
+      .social-button__icon {
+        background-color: @color-odnoklassniki;
       }
     }
-    &:hover {
-      background: @color-odnoklassniki;
-      border-color: @color-odnoklassniki;
-    }
   }
-  // vkontakte
   &.b-social-button--vkontakte {
-    .social-button__icon {
-      &:before {
-        color: @color-vkontakte;
-      }
-    }
     &:hover {
-      background: @color-vkontakte;
-      border-color: @color-vkontakte;
+      .social-button__icon {
+        background-color: @color-vkontakte;
+      }
     }
   }
-  // twitter
   &.b-social-button--twitter {
-    .social-button__icon {
-      &:before {
-        color: @color-twitter;
+    &:hover {
+      .social-button__icon {
+        background-color: @color-twitter;
       }
     }
+  }
+  &.b-social-button--moimir {
     &:hover {
-      background: @color-twitter;
-      border-color: @color-twitter;
+      .social-button__icon {
+        background-color: @color-moimir;
+      }
+    }
+  }
+  &.b-social-button--lj {
+    &:hover {
+      .social-button__icon {
+        background-color: @color-lj;
+      }
+    }
+  }
+  &.b-social-button--linkedin {
+    &:hover {
+      .social-button__icon {
+        background-color: @color-linkedin;
+      }
     }
   }
 }
 
 
-/* COLOR */
+/* COLOR THEME */
 .b-social-button--color {
-  border-radius: 2px;
-  color: #FFF;
-  .social-button__icon {
-    width: 41px;
-    height: 41px;
-    padding: 10px;
-    font-size: 18px;
-    text-align: center;
-    &:before {
-      color: #FFF;
-    }
-  }
-  .social-button__text {
-    padding: 14px 7px 13px 0px;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: bold;
-  }
-  .social-button__count {
-    padding: 12px 7px 12px 0px;
-    font-weight: bold;
+  margin-right: 10px;
+  background-color: #FFF;
+  .social-button__components {
+    color: #FFF;
   }
 
-  // googleplus
   &.b-social-button--googleplus {
-    background: @color-googleplus;
+    background-color: @color-googleplus;
     &:hover {
-      background: @color-googleplus-hover;
+      background-color: @color-googleplus-active;
     }
   }
-  // facebook
   &.b-social-button--facebook {
-    background: @color-facebook;
+    background-color: @color-facebook;
     &:hover {
-      background: @color-facebook-hover;
+      background-color: @color-facebook-active;
     }
   }
-  // odnoklassniki
-  &.b-social-button--odnoklassniki{
-    background: @color-odnoklassniki;
+  &.b-social-button--odnoklassniki {
+    background-color: @color-odnoklassniki;
     &:hover {
-      background: @color-odnoklassniki-hover;
+      background-color: @color-odnoklassniki-active;
     }
   }
-  // vkontakte
   &.b-social-button--vkontakte {
-    background: @color-vkontakte;
+    background-color: @color-vkontakte;
     &:hover {
-      background: @color-vkontakte-hover;
+      background-color: @color-vkontakte-active;
     }
   }
-  // twitter
   &.b-social-button--twitter {
-    background: @color-twitter;
+    background-color: @color-twitter;
     &:hover {
-      background: @color-twitter-hover;
+      background-color: @color-twitter-active;
     }
   }
-}
-
-
-/* FLAT3D */
-.b-social-button--flat3d {
-  border-bottom: 3px solid transparent;
-  border-radius: 3px;
-  color: #FFF;
-  .social-button__icon {
-    width: 41px;
-    height: 41px;
-    padding: 11px;
-    font-size: 18px;
-    text-align: center;
-    &:before {
-      color: #FFF;
-    }
-  }
-  .social-button__text {
-    padding: 15px 7px 12px 0px;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: bold;
-  }
-  .social-button__count {
-    padding: 12px 7px 12px 0px;
-  }
-
-  &:hover {
-    border-bottom-width: 2px;
-  }
-
-  &:active {
-    border-bottom-width: 1px;
-  }
-
-  // googleplus
-  &.b-social-button--googleplus {
-    background: @color-googleplus;
-    border-bottom-color: @color-googleplus-hover;
-  }
-  // facebook
-  &.b-social-button--facebook {
-    background: @color-facebook;
-    border-bottom-color: @color-facebook-hover;
-  }
-  // odnoklassniki
-  &.b-social-button--odnoklassniki{
-    background: @color-odnoklassniki;
-    border-bottom-color: @color-odnoklassniki-hover;
-  }
-  // vkontakte
-  &.b-social-button--vkontakte {
-    background: @color-vkontakte;
-    border-bottom-color: @color-vkontakte-hover;
-  }
-  // twitter
-  &.b-social-button--twitter {
-    background: @color-twitter;
-    border-bottom-color: @color-twitter-hover;
-  }
-}
-
-
-/* CIRCLE */
-.b-social-button--circle {
-  .social-button__icon {
-    width: 40px;
-    height: 40px;
-    padding: 9px;
-    font-size: 18px;
-    text-align: center;
-    border-radius: 100%;
-    &:before {
-      position: relative;
-      top: 1px;
-      color: #FFF;
-    }
-  }
-  .social-button__text {
-    padding: 13px 4px 7px 7px;
-    font-size: 13px;
-    font-weight: bold;
-    color: #444;
-  }
-  .social-button__count {
-    padding: 14px 2px 2px 2px;
-    font-size: 12px;
-    color: #444;
-  }
-
-  &:hover {
-    .social-button__text,
-    .social-button__count {
-      color: #000;
-    }
-  }
-
-  // googleplus
-  &.b-social-button--googleplus {
-    .social-button__icon {
-      background: @color-googleplus;
-    }
+  &.b-social-button--moimir {
+    background-color: @color-moimir;
     &:hover {
-      .social-button__icon {
-        background: @color-googleplus-hover;
-      }
+      background-color: @color-moimir-active;
     }
   }
-  // facebook
-  &.b-social-button--facebook {
-    .social-button__icon {
-      background: @color-facebook;
-    }
+  &.b-social-button--lj {
+    background-color: @color-lj;
     &:hover {
-      .social-button__icon {
-        background: @color-facebook-hover;
-      }
+      background-color: @color-lj-active;
     }
   }
-  // odnoklassniki
-  &.b-social-button--odnoklassniki{
-    .social-button__icon {
-      background: @color-odnoklassniki;
-    }
+  &.b-social-button--linkedin {
+    background-color: @color-linkedin;
     &:hover {
-      .social-button__icon {
-        background: @color-odnoklassniki-hover;
-      }
-    }
-  }
-  // vkontakte
-  &.b-social-button--vkontakte {
-    .social-button__icon {
-      background: @color-vkontakte;
-    }
-    &:hover {
-      .social-button__icon {
-        background: @color-vkontakte-hover;
-      }
-    }
-  }
-  // twitter
-  &.b-social-button--twitter {
-    .social-button__icon {
-      background: @color-twitter;
-    }
-    &:hover {
-      .social-button__icon {
-        background: @color-twitter-hover;
-      }
+      background-color: @color-linkedin-active;
     }
   }
 }

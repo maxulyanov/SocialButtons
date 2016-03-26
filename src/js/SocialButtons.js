@@ -1,6 +1,6 @@
 /*
  * SocialButtons: Кнопки для добавления контента в социальные сети
- * 2.1.3
+ * 2.2.3
  *
  * By Max Ulyanov
  * Src: https://github.com/M-Ulyanov/SocialButtons
@@ -72,20 +72,29 @@
         var self = this;
         var currentHelpers = self.options.helpers[service.name];
         var customClass = currentHelpers.customClass || '';
+
         var button = utils.createElement('div', 'b-social-button b-social-button--' + service.name +
             ' b-social-button--' + self.options.theme + ' ' + customClass, {
             title: currentHelpers.title
         });
 
+        var size = self._getButtonsSize(this.options.buttonSize);
+        if(size) {
+            button.style.fontSize = size + 'px';
+        }
+
+        var components= utils.createElement('div', 'social-button__components');
+        button.appendChild(components);
+
         if (self._renderComponents.icon === true) {
             var icon = utils.createElement('div', 'social-button__icon');
-            button.appendChild(icon);
+            components.appendChild(icon);
         }
 
         if (self._renderComponents.text === true) {
             var text = utils.createElement('div', 'social-button__text');
             text.innerHTML = currentHelpers.text;
-            button.appendChild(text);
+            components.appendChild(text);
         }
 
         button.addEventListener('click', function () {
@@ -100,10 +109,10 @@
                 /** @namespace self.options.showZeros */
                 count = counterRules(count, self.options.showZeros, self.options.outputCountCallback);
                 if (count === '') {
-                    countElement.className += 'social-button__count--empty';
+                    countElement.className += ' social-button__count--empty';
                 }
                 countElement.innerHTML = count;
-                button.appendChild(countElement);
+                components.appendChild(countElement);
                 return button;
             });
         }
@@ -139,6 +148,33 @@
             console.error('#' + this.options.id, 'not found!');
         }
     };
+
+
+    /**
+     *
+     * @param size
+     * @returns {Number}
+     * @private
+     */
+    SocialButtons.prototype._getButtonsSize = function(size) {
+        switch (size) {
+            case 'small':
+                size = 22;
+                break;
+            case 'middle':
+                size = 28;
+                break;
+            case 'large':
+                size = 34;
+                break;
+            default :
+                var parseSize = parseFloat(size);
+                if(!isNaN(parseSize)) {
+                    size = parseSize;
+                }
+        };
+        return size;
+    }
 
 
     /**
@@ -219,6 +255,10 @@
             count++;
             if (!isNaN(count)) {
                 countElement.setAttribute('data-count', count);
+                var outCountCallback = this.options.outputCountCallback;
+                if(typeof outCountCallback === 'function') {
+                    count = outCountCallback(count);
+                }
                 countElement.innerHTML = count;
                 var callbackShare = this.options.callbacks.share;
                 if (typeof callbackShare === 'function') {
