@@ -1,6 +1,6 @@
 /*
  * SocialButtons: Кнопки для добавления контента в социальные сети
- * 2.2.3
+ * 2.3.3
  *
  * By Max Ulyanov
  * Src: https://github.com/M-Ulyanov/SocialButtons
@@ -102,9 +102,9 @@
             self._countIncrement(button, {name: service.name, url: self._lastShareUrl});
         });
 
-        if (self.options.counter && service.getCountUrl != null && self._renderComponents.count) {
+        if (((self.options.counter && service.getCountUrl != null) || currentHelpers.counter != null) && self._renderComponents.count) {
             var countElement = utils.createElement('div', 'social-button__count');
-            return self._getCounter(service).then(function (count) {
+            return self._getCounter(service, currentHelpers.counter).then(function (count) {
                 countElement.setAttribute('data-count', count);
                 /** @namespace self.options.showZeros */
                 count = counterRules(count, self.options.showZeros, self.options.outputCountCallback);
@@ -172,24 +172,30 @@
                 if(!isNaN(parseSize)) {
                     size = parseSize;
                 }
-        };
+        }
         return size;
-    }
+    };
 
 
     /**
      *
      * @param service
+     * @param userFunctionCounter
      * @returns {*}
      * @private
      */
-    SocialButtons.prototype._getCounter = function (service) {
+    SocialButtons.prototype._getCounter = function (service, userFunctionCounter) {
         var url = this.options.url;
         var cacheValue = counterControl.caching[url];
 
         if (cacheValue != null) {
             return Promise.resolve(cacheValue)
         }
+
+        if(userFunctionCounter != null && typeof userFunctionCounter === 'function') {
+            return Promise.resolve(userFunctionCounter())
+        }
+
         return counterControl.get(service, url).then(function (count) {
             counterControl.caching[url] = count;
             return count;
@@ -353,42 +359,50 @@
             vkontakte: {
                 text: 'Рассказать',
                 title: 'Рассказать в Вконтакте',
-                customClass: ''
+                customClass: '',
+                counter: null
             },
             facebook: {
                 text: 'Поделиться',
                 title: 'Поделиться в Facebook',
-                customClass: ''
+                customClass: '',
+                counter: null
             },
             googleplus: {
                 text: 'Это интересно',
                 title: 'Это интересно Google Plus',
-                customClass: ''
+                customClass: '',
+                counter: null
             },
             odnoklassniki: {
                 text: 'Написать',
                 title: 'Написать в Одноклассниках',
-                customClass: ''
+                customClass: '',
+                counter: null
             },
             moimir: {
                 text: 'Поделиться',
                 title: 'Поделиться ссылкой в Мой Мир',
-                customClass: ''
+                customClass: '',
+                counter: null
             },
             twitter: {
                 text: 'Ретвит',
                 title: 'Написать в Twitter',
-                customClass: ''
+                customClass: '',
+                counter: null
             },
             lj: {
                 text: 'Написать',
                 title: 'Разместить запись в LiveJournal',
-                customClass: ''
+                customClass: '',
+                counter: null
             },
             linkedin: {
                 text: 'Поделиться',
                 title: 'Поделиться в Linkedin',
-                customClass: ''
+                customClass: '',
+                counter: null
             }
         }
 

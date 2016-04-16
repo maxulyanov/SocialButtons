@@ -127,6 +127,13 @@
           return count;
         },
         url: 'https://mail.ru',
+        helpers: {
+          twitter: {
+            counter: function() {
+              return 10;
+            }
+          }
+        }
       }
 
       new SocialButtons(options);
