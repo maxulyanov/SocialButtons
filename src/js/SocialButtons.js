@@ -4,7 +4,7 @@
  *
  * By Max Ulyanov
  * Src: https://github.com/M-Ulyanov/SocialButtons
- * Example https://m-ulyanov.github.io/socialbuttons/
+ * Example https://m-ulyanov.github.io/SocialButtons/
  */
 
 

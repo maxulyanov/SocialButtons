@@ -73,4 +73,4 @@
 IE начиная с 9 версии и выше.
 
 ## Демонстрация
- <a href="https://m-ulyanov.github.io/social-buttons/">Посмотреть пример</a>
+ <a href="https://m-ulyanov.github.io/SocialButtons/">Посмотреть пример</a>
