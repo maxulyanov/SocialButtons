@@ -1,6 +1,6 @@
 /*
  * SocialButtons: Кнопки для добавления контента в социальные сети
- * 2.3.3
+ * 2.3.4
  *
  * By Max Ulyanov
  * Src: https://github.com/M-Ulyanov/SocialButtons
@@ -449,7 +449,7 @@
         },
         facebook: {
             name: 'facebook',
-            shareUrl: protocol + '://www.facebook.com/sharer.php?u={{ url }}&title={{ title }}&description={{ description }}&image={{ image }}',
+            shareUrl: protocol + '://www.facebook.com/sharer/sharer.php?u={{ url }}&title={{ title }}&description={{ description }}&image={{ image }}',
             getCountUrl: protocol + '://graph.facebook.com/?id=',
             counter: function (url, promise) {
                 var request = new RequestManager();
