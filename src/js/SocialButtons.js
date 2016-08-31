@@ -1,6 +1,6 @@
 /*
  * SocialButtons: Кнопки для добавления контента в социальные сети
- * 2.3.5
+ * 2.3.6
  *
  * By Max Ulyanov
  * Src: https://github.com/M-Ulyanov/SocialButtons
@@ -455,11 +455,11 @@
                 var request = new RequestManager();
                 request.create(this.getCountUrl + url).then(function (data) {
                     /** @namespace data.share.share_count */
-                    var share = data.share.share_count;
-                    if (share == null) {
-                        share = 0;
+                    var count = 0;
+                    if (data.share != null && data.share.share_count != null) {
+                        count = data.share.share_count;
                     }
-                    promise.resolve(share);
+                    promise.resolve(count);
                 })
             }
         },
