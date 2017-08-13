@@ -573,7 +573,8 @@
             count = '';
         }
         if(typeof outputCountCallback === 'function') {
-            count = outputCountCallback(parseInt(count));
+            var parseCount = !isNaN(parseInt(count)) ? parseInt(count) : 0;
+            count = outputCountCallback(parseCount);
         }
         return count;
     }
@@ -610,6 +611,10 @@
         self.script.onload = function () {
             self.remove();
             defer.resolve(self.data);
+        };
+        self.script.onerror = function () {
+          self.remove();
+          defer.resolve(null);
         };
         return defer.promise;
     };
